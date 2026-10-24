@@ -1,0 +1,21 @@
+WINCASH GLOBAL — VERSION AVEC INSCRIPTION SUPABASE (ÉTAPE 1)
+
+CONTENU
+- index.html : site avec formulaire d’inscription et de connexion réels via Supabase Auth.
+- supabase-config.js : emplacement de l’URL du projet et de la clé publique.
+- supabase_schema.sql : table de profil et règles de sécurité RLS.
+
+ÉTAPES
+1) Dans Supabase, ouvrez Project Settings > API (ou Data API). Copiez Project URL et la clé Publishable (ou anon public sur l’ancienne interface).
+2) Ouvrez supabase-config.js avec Bloc-notes. Remplacez COLLEZ_ICI_URL_DU_PROJET et COLLEZ_ICI_CLE_PUBLIQUE par vos valeurs. Enregistrez.
+3) Dans Supabase, ouvrez SQL Editor > New query. Copiez tout le contenu de supabase_schema.sql, puis cliquez Run.
+4) Dans Supabase > Authentication > URL Configuration, ajoutez l’adresse publique Netlify de votre site aux Redirect URLs si nécessaire. Pour commencer, conservez la confirmation e-mail activée.
+5) Déposez les fichiers index.html, supabase-config.js et supabase_schema.sql (ou le dossier qui les contient) dans Netlify pour republier le site.
+6) Testez avec une adresse e-mail à vous et un mot de passe de test solide. N’utilisez pas le mot de passe de votre compte personnel.
+
+SÉCURITÉ
+- Ne mettez JAMAIS une clé secret ou service_role dans un fichier public. Utilisez seulement la clé Publishable / anon public.
+- Ne partagez pas vos mots de passe ni vos clés privées.
+- Les profils sont protégés par Row Level Security : chaque membre peut lire/modifier uniquement son propre profil.
+- Cette étape active uniquement l’inscription et la connexion. Elle n’active PAS les gains, les soldes réels, les missions payées, les retraits, les dépôts ou les paiements Mobile Money/PayPal.
+- Avant le lancement public, ajouter vérification e-mail, politique de confidentialité, règles anti-abus et tests de sécurité.
